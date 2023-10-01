@@ -1,0 +1,6 @@
+.is-active {
+  display: flex;
+}
+.is-inactive {
+  display: none;
+}
