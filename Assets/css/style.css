@@ -58,9 +58,13 @@ body{
   transition: all 0.3s;
 }
 
-.btn:hover{
+.btn:hover:not([disabled]){
   background: grey;
   color: white;
+}
+
+.btn:disabled{
+  cursor: no-drop;
 }
 
 .correct{
