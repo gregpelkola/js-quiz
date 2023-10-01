@@ -28,3 +28,110 @@ function viewHiScore() {
     gameEnd.setAttribute("class", "is-inactive");
     hiScore.setAttribute("class", "is-active");
 }
+
+const questions = [
+    {
+        question: "Commonly used data types DO not include",
+        answers: [
+            {text: "strings", correct: false},
+            {text: "booleans", correct: false},
+            {text: "alerts", correct: true},
+            {text: "numbers", correct: false},
+        ]
+    },
+    {
+        question: "The conditon in an if/else statement is enclosed with",
+        answers: [
+            {text: "parenthesis", correct: true},
+            {text: " square brackets", correct: false},
+            {text: "curly brack", correct: false},
+            {text: "quotes", correct: false},
+        ]
+    },
+    {
+        question: "Arrays in JavaScript can be used to store",
+        answers: [
+            {text: "numbers and strings", correct: false},
+            {text: "other arrays", correct: false},
+            {text: "booleans", correct: false},
+            {text: "all of the above", correct: true},
+        ]
+    },
+    {
+        question: "String values must be enclosed within ____ when being assigned to variables",
+        answers: [
+            {text: "commas", correct: false},
+            {text: "curly brackets", correct: false},
+            {text: "parenthesis", correct: false},
+            {text: "quotes", correct: true},
+        ]
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is",
+        answers: [
+            {text: "console.log", correct: true},
+            {text: "for loops", correct: false},
+            {text: "JavaScript", correct: false},
+            {text: "Terminal/Bash", correct: false},
+        ]
+    }
+];
+
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion(){
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer)
+    });
+}
+
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+       answerButtons.removeChild(answerButtons.firstChild) 
+    }
+}
+
+function selectAnswer(e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if(isCorrect){
+        selectedBtn.classList.add("correct");
+    }else{
+        selectedBtn.classList.add("incorrect");
+    
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
+
+startQuiz();
