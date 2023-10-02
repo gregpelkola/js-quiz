@@ -83,6 +83,11 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+//if (selected == myQuestions[5].correctAnswer){
+   // alert("Correct!")
+//}else{
+   // alert("Wrong! Try again.")
+//}
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -133,11 +138,12 @@ function selectAnswer(e){
         button.disabled = true;
     });
     nextButton.style.display = "block";
+    
 }
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = 'You scored ${score} out of ${questions.length}!';
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
 
@@ -145,7 +151,7 @@ function showScore(){
 
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < question.length){
+    if(currentQuestionIndex < questions.length){
         showQuestion();
     }else{
       showScore();  

@@ -4,7 +4,7 @@
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
-
+/*style of main body*/
 body{
   background: navy;
 }
@@ -16,7 +16,7 @@ body{
 .is-inactive {
   display: none;
 }
-
+/*quiz box style*/
 .app{
   background: white;
   width: 90%;
@@ -25,7 +25,7 @@ body{
   border-radius: 10px;
   padding: 30px;
 } 
-
+/*header for quiz box*/
 .app h1{
   font-size: 25px;
   color: black;
@@ -33,17 +33,17 @@ body{
   border-bottom: 1px solid black;
   padding-bottom: 30px;
 }
-
+/*padding around quiz box*/
 .quiz{
   padding: 20px 0;
 }
-
+/*question heaader*/
 .quiz h2{
   font-size: 18px;
   color: black;
   font-weight: 600;
 }
-
+/*button style*/
 .btn{
   background: white;
   color: black;
@@ -57,63 +57,63 @@ body{
   cursor: pointer;
   transition: all 0.3s;
 }
-
+/*adds hover effect when over button*/
 .btn:hover:not([disabled]){
   background: grey;
   color: white;
 }
-
+/*disabled click on button after selecting answer*/
 .btn:disabled{
   cursor: no-drop;
 }
-
+/*highlights coreect answers*/
 .correct{
   background: lightgreen;
 }
-
+/*highlight incorrect answers*/
 .incorrect{
   background: lightcoral;
 }
-
+/*hi score button style*/
 #hi{
   background: white;
   color: black;
   font-weight: 500;
-  width: 100%;
+  width: 7%;
   border: 1px solid black;
   padding: 10px;
-  margin: 10px 0;
-  text-align: left;
+  margin: 0 auto;
+  text-align: center;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
   display: block;
 }
-
+/*hover effect for hi score button*/
 #hi:hover{
   background: grey;
   color: white;
 }
-
+/*back button style*/
 #back{
   background: white;
   color: black;
   font-weight: 500;
-  width: 100%;
   border: 1px solid black;
   padding: 10px;
-  margin: 10px 0;
-  text-align: left;
+  margin: 0 auto;
+  text-align: center;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
   display: block;
 }
-
+/*hover effect for back button*/
 #back:hover{
   background: grey;
   color: white;
 }
+/*next question button style*/
 #next-btn{
   background: navy;
   color: white;
@@ -125,5 +125,17 @@ body{
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+/*style for hi score*/
+#hi-score{
+  color: white;
+  font-weight: 500;
+  width: 7%;
+  border: 0;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+  border-block-end: 1px solid white;
+  display: block;
 }
 
