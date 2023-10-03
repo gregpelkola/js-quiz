@@ -144,6 +144,7 @@ function selectAnswer(e){
         score++;
     }else{
         selectedBtn.classList.add("incorrect");
+        timeLeft -= 25;
     
     }
     Array.from(answerButtons.children).forEach(button => {
