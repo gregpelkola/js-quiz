@@ -29,6 +29,8 @@ Copy the repository and put it in the directory of your choice. Open the created
 
 ## Usage
 
+https://gregpelkola.github.io/js-quiz/
+
 Provide instructions and examples for use. Include screenshots as needed.
 Click the Start button to begin quiz. Once started a timer will start to count down, incorrect answers take time off the timer, correct answers will give you 1 point. Then click the next button to go to the next question. When the quiz is over you will get a text on screen saying "You scored (#of correct answers or 0 for no correct answers) out of 5" indicating how many questions you got right or wrong. You can then click the play again button to start over.
 
