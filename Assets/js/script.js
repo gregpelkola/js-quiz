@@ -6,10 +6,24 @@ var hiScore = document.getElementById("hi-score");
 var hiButton = document.getElementById("hi");
 var backButton = document.getElementById("back");
 
+var timeEl = document.getElementById("timer");
+var timeLeft = 90;
+
+
 hiButton.addEventListener("click", viewHiScore);
 backButton.addEventListener("click", function () {
     document.location.reload();
 });
+
+function setTime() {
+   var timerInterval = setInterval(function() {
+      timeLeft--;
+      timeEl.textContent = timeLeft + " seconds left";
+      if(timeLeft === 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
+  }
 
 
 function startGame() {
@@ -92,6 +106,7 @@ let score = 0;
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
+    timeLeft = 90;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
@@ -157,6 +172,12 @@ function handleNextButton(){
       showScore();  
     }
 }
+
+
+
+startBtn.addEventListener('click', function() {
+    setTime();
+})
 
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
